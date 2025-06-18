@@ -25,5 +25,7 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 # Открываем порт
 EXPOSE 8080
 
+RUN php artisan migrate --force || true
+
 # Запуск Laravel
 CMD php artisan serve --host=0.0.0.0 --port=8080
